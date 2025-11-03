@@ -11,7 +11,7 @@ import Nav from './page/Nav'
 import Login from './page/Login'
 import Footer from './page/Footer'
 import About from './page/About'
-import Shop from './page/shop'
+import Shop from './page/Shop'
 
 function App() {
   const [count, setCount] = useState(0)
