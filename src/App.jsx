@@ -7,11 +7,11 @@ import Register from './page/Register'
 import Cart from './page/Cart'
 import Procceed from './page/Procceed'
 import { ToastContainer } from 'react-toastify'
-import Shop from './page/Shop'
 import Nav from './page/Nav'
 import Login from './page/Login'
 import Footer from './page/Footer'
 import About from './page/About'
+import Shop from './page/shop'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -26,7 +26,7 @@ function App() {
         <Route element={<Register/>} path='/register'/>
         <Route element={<Login/>} path='/login'/>
         <Route element={<Cart/>} path='/cart'/>
-        <Route element={<Shop/>} path='/shop'/>
+        <Route element={<Shop/>} path='/Shop'/>
         <Route element={<Procceed/>} path='/proo'/>
         <Route element={<About/>} path='/about'/>
       </Routes>

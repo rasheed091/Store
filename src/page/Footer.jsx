@@ -8,7 +8,7 @@ import { SiWebmoney } from 'react-icons/si';
 export default function Footer() {
   return (
     <>
-      <div className='w-[100%] py-[30px] h-[35vh] rounded shadow bg-[#241a14] backdrop-blur-lg  '>
+      <div className='w-[100%] py-[30px] rounded shadow bg-[#352720] backdrop-blur-lg  '>
         <div>
           <div className='flex justify-center items-center'>
             <TbShoppingCartDollar size={25} color='orangered'/>

@@ -3,7 +3,7 @@ import { useCartStore } from '../store/ricCart'
 import { TbTruckDelivery } from 'react-icons/tb';
 import { BsFillBoxSeamFill } from 'react-icons/bs';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { PayPalButtons } from '@paypal/react-paypal-js';
 import { FaArrowLeftLong } from 'react-icons/fa6';
 
@@ -61,16 +61,17 @@ export default function Procceed() {
 
         if (carts.length == 0) {
         return(
-            <div className='flex flex-col justify-center items-center h-[100vh]'>
-                <div className='rounded p-[20px] shadow'>
-                    <img className=' w-[fit] h-[70vh]' src= 'src/assets/emptyCart.jpg' alt="" />
-                    <h1 className='font-bold text-[30px] mt-5 text-center'>Your cart is empty</h1>
-                </div>
-                    <button className='flex gap-5 bg-blue-500 mt-4 rounded-2xl p-3'>
-                        <FaArrowLeftLong size={25}/>
-                        <h1 className='text-[17px] text-white font-bold'>Back to Shop</h1>
-                        
+            <div style={{fontFamily: 'Berkshire Swash',}} className='flex flex-col justify-center items-center h-[100vh] bg-[#241a14] '>
+                <div className='rounded p-[20px] shadow justify-center flex flex-col items-center mt-[20%] mb-[13%] bg-[brown]/10 slide-in'>
+                    <img className=' w-[fit] h-[50vh]' src= 'src/assets/emptyCart.jpg' alt="" />
+                    <h1 className='font-bold text-[30px] mt-5 text-center text-white'>Your cart is empty</h1>
+                    <button className='flex gap-5 border border-white mt-4 rounded-2xl px-3 py-1 hover:bg-white hover:text-[#241a14] transition duration-300'>
+                        <FaArrowLeftLong size={25} color='white'/>
+                        <Link to='/shop'>
+                            <h1 className='text-[17px font-bold'>Back to Shop</h1>
+                        </Link>
                     </button>
+                </div>
             </div>
         )
     }
@@ -83,17 +84,17 @@ export default function Procceed() {
   return (
     <>
         
-        <div className='border flex gap-7 p-[30px] bg-[#f0f0f0]'style={{fontFamily:'roboto'}}>
-            <div className='w-[50%] shadow justify-center px-[25px] rounded-3xl p-6 bg-white'>
+        <div className='border flex justify-center gap-7 p-[30px] bg-[#241a14]'style={{fontFamily:'roboto',color: 'white'}}>
+            <div className='w-[50%] shadow justify-center px-[25px] rounded-3xl p-6 mt-[10%] bg-[brown]/10'>
                 <div className='flex gap-[20%] mb-7'>
-                    <div className='flex gap-3 border p-5 rounded-2xl'>
+                    <div className='flex gap-3 p-5 rounded-2xl text-black hover:bg-white hover:text-[#241a14] transition duration-300'>
                         <input type="radio" />
                         <div className='flex justify-center gap-1 '>
                            <TbTruckDelivery size={20}/> 
                            <h1>Delivery</h1>
                         </div>
                     </div>
-                    <div className='flex gap-3 border p-5 rounded-2xl'>
+                    <div className='flex gap-3 p-5 rounded-2xl text-black hover:bg-white hover:text-[#241a14] transition duration-300'>
                         <input type="radio" />
                         <div className='flex justify-center gap-1 '>
                            <BsFillBoxSeamFill size={20}/> 
@@ -126,7 +127,7 @@ export default function Procceed() {
 
                 </div>
             </div>
-            <div className='shadow bg-white rounded-2xl p-4'>
+            <div className='shadow rounded-2xl p-4 bg-[brown]/10 mt-[10%]'>
                 <div className='mb-[30px]'>
                     <h1 className='font-bold text-2xl'>Review Your Cart</h1>
                 </div>
@@ -173,9 +174,21 @@ export default function Procceed() {
                 </div>
 
                 { payMethod == 'paypal'
-                 ? <PayPalButtons/>
+                 ? <PayPalButtons 
+                    CreateOrder = {(data,actions) => {
+                        return actions.order.create({
+                            purchase_units: [
+                                {
+                                    amount: {
+                                        value: totalCount,
+                                    },
+                                },
+                            ],
+                        });
+                    }}
+                 />
                 :      <div className=' flex justify-center items-center mt-[50px]'>
-                 <button className='bg-[#6060f3] w-[80%] font-bold text-white py-[10px] px-[30px] rounded' onClick={setRegister}>Pay Now</button>
+                 <button className='w-[80%] font-bold py-[10px] px-[30px] rounded text-black hover:bg-white hover:text-[#241a14] transition duration-300' onClick={setRegister}>Pay Now</button>
                 </div> }
                  
             </div>

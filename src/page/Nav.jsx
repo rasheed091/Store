@@ -26,10 +26,14 @@ export default function Nav() {
                 <Link to='/register' >
                     <li>Register</li>
                 </Link>
+                <Link to='/login'>
                     <li>Login</li>
+                </Link>
+                <Link to= '/about'>
+                    <li>About</li>
+                </Link>
                 <Link to='/cart'>
                     <li><BsCart4 size={30}/>{totalCount > 0 && <span className='bg-[orangered] rounded-[120%] px-[8px] text-[15px] absolute top-1 animate-bounce'> {totalCount}</span>}</li>
-        
                 </Link>
             </ul>
         </div>
