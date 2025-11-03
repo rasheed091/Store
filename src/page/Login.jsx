@@ -55,11 +55,11 @@ export default function Login() {
                 </Link>
               </div>
               <div className='border rounded-[38px] w-[60%] h-[7vh] flex items-center p-2 gap-7 place-content-between px-3'>
-                <input className='w-[80%]' type="text" placeholder='Enter your email'/>
+                <input className='w-[80%]' type="text" placeholder='Enter your email' onChange={(e)=>setEmail(e.target.value)}/>
                 <AiOutlineMail color='orangered' size={20}/>
               </div>
               <div className='border rounded-[38px] w-[60%] h-[7vh] flex items-center p-2 gap-7 place-content-between px-3'>
-                <input className='w-[100%]' type="password" placeholder='Enter your password'/>
+                <input className='w-[100%]' type="password" placeholder='Enter your password' onChange={(e)=>setpassword(e.target.value)}/>
               </div>
               <button className="py-[10px] px-[40px] mt-[40px] border border-white w-[50%] text-black hover:bg-white hover:text-[#241a14] transition duration-300 rounded-2xl">Login</button>
             </div>
