@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 
 
-export default function Shop() {
+export default function shop() {
   const [allProduct, setAllproduct] = useState([]);
   const [Filter, setFilter] = useState("All");
   const [Sorts, setSorts] = useState('default');
